@@ -1,0 +1,18 @@
+.navigationLink {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+
+}
+
+.link {
+    composes: navigationLink;
+    color: gray;
+    padding-right: 30px;
+}
+
+.activeLink {
+    composes: navigationLink;
+    color: palevioletred;
+}
