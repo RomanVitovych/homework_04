@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+import styles from './HomePage.module.css';
 import Loader from '../../Components/Loader/Loader';
 import moviesApi from '../../services/moviesApi';
 
@@ -21,17 +22,23 @@ class HomePage extends Component {
         const {match} = this.props;
         return (
             <>
-              <h2>Trending movies</h2> 
+              <h2 
+              className={styles.mainTitle}
+              >Trending movies</h2> 
               <hr />
               {loading ? <Loader /> : (
-              <ul>
+              <ul
+              className={styles.mainList}
+              >
                   {movies.map(movie => (
-                      <li key={movie.id} >
-                          <Link to={{
-                                pathname: `${match.url}/${movie.id}`, 
+                      <li 
+                      className={styles.mainItem}
+                      key={movie.id} >
+                          <NavLink to={{
+                                pathname: `${match.url}movies/${movie.id}`, 
                                 state: {from: this.props.location}}} >
                                     {movie.original_title}
-                          </Link>
+                          </NavLink>
                       </li>
                   ))}
               </ul>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './Reviews.module.css';
 import Loader from '../../Components/Loader/Loader';
 import ErrorNotification from '../../Components/ErrorNotification/ErrorNotification';
 import moviesApi from '../../services/moviesApi';
@@ -28,16 +29,24 @@ class Cast extends Component {
                 {error && <ErrorNotification message={message} />}
                 {loading && <Loader />}
                 {movieReviws.length > 0 ? (
-                <ul>
+                <ul className={styles.reviewsList} >
                     {movieReviws.map(movie => (
-                        <li key={movie.id} >
-                            <p>Author: {movie.author}</p>
-                            <p>{movie.content}</p>
+                        <li 
+                        className={styles.reviewsItem}
+                        key={movie.id} >
+                            <p 
+                            className={styles.authorName}
+                            >Author: {movie.author}</p>
+                            <p
+                            className={styles.authorText}
+                            >{movie.content}</p>
                         </li>
                     ))}
                 </ul>
                 ) : (
-                    <p>We don't have any reviews for this movie</p>
+                    <p 
+                    className={styles.worningMessage} >
+                        We don't have any reviews for this movie</p>
                 )}
             </>
         );

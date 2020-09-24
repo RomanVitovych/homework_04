@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import styles from './MoviesPage.module.css';
 import Loader from '../../Components/Loader/Loader';
 import SearchForm from '../../Components/SearchForm/SearchForm';
 import ErrorNotification from '../../Components/ErrorNotification/ErrorNotification';
@@ -56,9 +57,12 @@ class MoviesPage extends Component {
                 
                 {error && <ErrorNotification message={message} />}
                 {loading ? <Loader /> : (
-                <ul>
+                <ul 
+                className={styles.moviesList} >
                     {movies.map(movie => (
-                        <li key={movie.id} >
+                        <li 
+                        className={styles.moviesItem}
+                        key={movie.id} >
                             <Link to={{
                                 pathname: `${match.url}/${movie.id}`, 
                                 state: {from: this.props.location}}} >

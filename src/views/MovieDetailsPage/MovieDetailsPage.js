@@ -39,60 +39,85 @@ class MovieDetailsPage extends Component {
         const {movie, error, message} = this.state;
         return (
             <>
-                <button type='button' onClick={this.handleGoBack} >Go back</button>
+                <button 
+                className={styles.movieButton}
+                type='button' onClick={this.handleGoBack} >
+                Go back</button>
 
                 {error && <ErrorNotification message={message} />}
                 {!movie ? <Loader /> : (
                 <div>
                     <>
-                        <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${
+                        <img 
+                        className={styles.movieImage}
+                        src={`https://image.tmdb.org/t/p/w220_and_h330_face${
                             movie.poster_path
                                ? movie.poster_path
                                : "/bOKjzWDxiDkgEQznhzP4kdeAHNI.jpg"
                             }`} alt={movie.original_title} />
-                        <ul>
-                            <li>
-                                <h3>{movie.original_title} ({movie.release_date.slice(0,4)})</h3>
+                        <ul 
+                        className={styles.movieList} >
+                            <li
+                            className={styles.movieItem} >
+                                <h3
+                                className={styles.movieTitle}
+                                >{movie.original_title} ({movie.release_date.slice(0,4)})</h3>
                             </li>
-                            <li>
-                                <p>User score {Math.round(movie.popularity)}%</p>
+                            <li
+                            className={styles.movieItem} >
+                                <p 
+                                className={styles.movieScore}
+                                >User score {Math.round(movie.popularity)}%</p>
                             </li>
-                            <li>
-                                <h4>Overview</h4>
-                            <p>{movie.overview}</p>
+                            <li
+                            className={styles.movieItem} >
+                                <h4
+                                className={styles.movieOverview}
+                                >Overview</h4>
+                            <p
+                            className={styles.movieOverviewText}
+                            >{movie.overview}</p>
                             </li>
-                            <li>
-                                <h4>Genres</h4>
-                                <p>{movie.genres.map(elem => elem.name).join(', ')}</p>
+                            <li
+                            className={styles.movieItem} >
+                                <h4
+                                className={styles.movieGenres}
+                                >Genres</h4>
+                                <p
+                                className={styles.movieGenresText}
+                                >{movie.genres.map(elem => elem.name).join(', ')}</p>
                             </li>
                         </ul>
                         <hr/>
+                        <hr/>
                     </>
                     <>
-                        <h4>Additional information</h4>
-                        <ul>
+                        <h4
+                        className={styles.movieDetails}
+                        >Additional information</h4>
+                        <ul className={styles.linkList} >
                             <li>
                                 <Link
-                                to={routes.cast}
+                                to={this.props.match.url+routes.cast}
                                 className={styles.link}
-                                activeClassName={styles.activeLink}
                                 >
                                 Cast
                                 </Link>
                             </li>
                             <li>
                                 <Link
-                                to={routes.reviews}
+                                to={this.props.match.url+routes.reviews}
                                 className={styles.link}
-                                activeClassName={styles.activeLink}
                                 >
                                 Reviews
                                 </Link>
                             </li>
                         </ul>
                         <hr/>
-                        <Route path={routes.cast} component={Cast} />
-                        <Route path={routes.reviews} component={Reviews} />
+                        <hr/>
+                        <Route path={this.props.match.path+routes.cast} component={Cast} />
+                        <Route path={this.props.match.path+routes.reviews} component={Reviews} />
+                        <hr/>
                         <hr/>
                     </>
                 </div>    

@@ -22,12 +22,16 @@ class SearchForm extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} >
                     <input 
+                    className={styles.mainInput}
+                    placeholder='enter film...'
                     type='text'
                     value={this.state.value}
                     onChange={this.handleChange} />
-                    <button type='submit' >Search</button>
+                    <button 
+                    className={styles.mainButton}
+                    type='submit' >Search</button>
                 </form>
             </div>
         );

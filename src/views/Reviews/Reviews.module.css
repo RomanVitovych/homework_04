@@ -1,0 +1,35 @@
+.reviewsList {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 40px 20px;
+}
+
+.authorName {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.reviewsItem:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.authorText {
+    font-size: 14px;
+    font-weight: 400;
+    font-style: italic;
+    padding: 0;
+    padding-bottom: 20px;
+    margin: 0;
+}
+
+.worningMessage {
+    font-size: 18px;
+    font-weight: 600;
+    font-style: italic;
+    padding: 0;
+    margin: 0;
+    margin-left: 20px;
+}

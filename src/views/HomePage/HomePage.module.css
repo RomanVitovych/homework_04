@@ -1,0 +1,23 @@
+.mainTitle {
+    text-transform: uppercase;
+    font-size: 36px;
+    font-weight: 700;
+    padding-left: 20px;
+    margin: 20px 0 20px 0;
+}
+
+.mainList {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 40px 20px;
+}
+
+.mainItem {
+    font-size: 18px;
+    font-weight: 400;
+
+}
+
+.mainItem:not(:last-child) {
+    padding-bottom: 10px;
+}

@@ -29,7 +29,7 @@ const fetchCreditsDetails = (movieId) => {
 
 const fetchReviewFilms = (movieId) => {
     return axios 
-    .get(`${urlApi}/movie/${movieId}/review?api_key=${keyApi}&language=en-US&page=1`)
+    .get(`${urlApi}/movie/${movieId}/reviews?api_key=${keyApi}`)
     .then(response => response.data.results);
 }
 

@@ -1,0 +1,19 @@
+.castList {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 40px 20px;
+}
+
+.castItem:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.castName {
+    margin: 5px 0 10px 0;
+}
+
+.castCharacter {
+    padding: 0;
+    padding-bottom: 20px;
+    margin: 0;
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './Cast.module.css';
 import Loader from '../../Components/Loader/Loader';
 import ErrorNotification from '../../Components/ErrorNotification/ErrorNotification';
 import moviesApi from '../../services/moviesApi';
@@ -28,16 +29,23 @@ class Cast extends Component {
                 {error && <ErrorNotification message={message} />}
                 {loading && <Loader />}
                 {!error && !loading && (
-                <ul>
+                <ul className={styles.castList} >
                     {movieCasts.map(movie => (
-                        <li key={movie.credit_id} >
+                        <li 
+                        className={styles.castItem}
+                        key={movie.credit_id} >
                             <img src={`https://image.tmdb.org/t/p/w138_and_h175_face${
                                 !movie.profile_path
                                     ? "/27C77ni5XmlgkJVbomXPC4tHWVd.jpg"
                                     : movie.profile_path
                                 }`} alt={movie.name} />
-                            <p>{movie.name}</p>
-                            <p>Character: {movie.character}</p>
+                            <p 
+                            className={styles.castName} 
+                            >{movie.name}</p>
+                            <p
+                            className={styles.castCharacter}
+                            >Character: {movie.character}</p>
+                        <hr />
                         </li>
                     ))}
                 </ul>
